@@ -24,19 +24,6 @@ android {
         println("versionCode:${versionCode}")
 
         multiDexEnabled false
-        signingConfigs {
-            release{
-                if (System.getenv("KEYSTORE_PATH") != null){
-                    storeFile = file(System.getenv("KEYSTORE_PATH"))
-                    storePassword = System.getenv("KEYSTORE_PASSWORD")
-                    keyAlias = System.getenv("KEY_ALIAS")
-                    keyPassword = System.getenv("KEY_PASSWORD")
-                }
-                enableV1Signing = true
-                enableV2Signing = true
-                enableV3Signing = true
-            }
-        }
         resConfigs "zh-rCN", "zh"
         ndk {
             abiFilters 'armeabi-v7a',"arm64-v8a"
@@ -68,11 +55,6 @@ android {
             path "./src/main/adfawhf/CMakeLists.txt"
             version "3.23.2"
 
-        }
-    }
-    android.applicationVariants.all { variant ->
-        variant.outputs.all {
-            outputFileName = "QTool_v${versionCode}.apk"
         }
     }
 }
