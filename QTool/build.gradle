@@ -57,11 +57,6 @@ android {
 
         }
     }
-    android.applicationVariants.all { variant ->
-        variant.outputs.all {
-            outputFileName = "QTool_v${versionCode}.apk"
-        }
-    }
 }
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
