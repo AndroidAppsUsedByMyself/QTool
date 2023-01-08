@@ -24,18 +24,6 @@ android {
         println("versionCode:${versionCode}")
 
         multiDexEnabled false
-        signingConfigs {
-            release{
-                if (System.getenv("KEYSTORE_PATH") != null){
-                    storeFile = file(System.getenv("KEYSTORE_PATH"))
-                    storePassword = System.getenv("KEYSTORE_PASSWORD")
-                    keyAlias = System.getenv("KEY_ALIAS")
-                    keyPassword = System.getenv("KEY_PASSWORD")
-                }
-                enableV1Signing = true
-                enableV2Signing = true
-                enableV3Signing = true
-            }
         }
         resConfigs "zh-rCN", "zh"
         ndk {
@@ -45,7 +33,6 @@ android {
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
