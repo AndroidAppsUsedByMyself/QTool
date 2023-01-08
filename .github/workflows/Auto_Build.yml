@@ -39,7 +39,7 @@ jobs:
           KEYSTORE_PASSWORD: ${{ secrets.SIGN_PASS }}
           KEY_ALIAS: ${{ secrets.SIGN_ALIAS }}
           KEY_PASSWORD: ${{ secrets.ALIA_PASS }}
-      - name: Write Commit Message To Files
+      - name: Write Commit Message To File
         run: |
           cat << ENDOFCOMMIT > ./QTool/build/outputs/apk/release/Commit信息.txt
           ${{ github.event.head_commit.message }}
