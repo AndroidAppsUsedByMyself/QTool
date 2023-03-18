@@ -52,7 +52,7 @@ android {
     externalNativeBuild {
         cmake {
             path "./src/main/adfawhf/CMakeLists.txt"
-            version "3.23.2"
+            version "3.18.1"
 
         }
     }
@@ -81,5 +81,5 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.1'
     implementation "com.airbnb.android:lottie:5.2.0"
 
-    implementation project(':dexkit')
+    implementation project(':dexkit-android')
 }
