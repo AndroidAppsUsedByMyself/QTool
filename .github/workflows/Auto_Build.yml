@@ -3,6 +3,7 @@ name: Build CI
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -30,7 +31,7 @@ jobs:
           export CommitNumber=`git rev-list --count main`
           echo $CommitNumber
           cd ../..
-          echo ${{ secrets.SIGN_KEY }} | base64 -d > key.jks
+          echo "${{ secrets.SIGN_KEY }}" | base64 -d > key.jks
           git submodule update --init --recursive
           echo $CommitNumber
           ./gradlew :QTool:assembleRelease

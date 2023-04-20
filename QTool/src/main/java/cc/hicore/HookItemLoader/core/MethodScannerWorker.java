@@ -3,7 +3,6 @@ package cc.hicore.HookItemLoader.core;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
@@ -32,8 +31,8 @@ import cc.hicore.ReflectUtils.MMethod;
 import cc.hicore.Utils.Utils;
 import cc.hicore.qtool.BuildConfig;
 import cc.hicore.qtool.HookEnv;
+import cc.hicore.qtool.XposedInit.CommonHookLoaderDialog;
 import cc.hicore.qtool.XposedInit.HostInfo;
-import cc.hicore.qtool.XposedInit.Initer.CommonHookLoaderDialog;
 import de.robv.android.xposed.XposedBridge;
 
 public class MethodScannerWorker {
@@ -236,14 +235,6 @@ public class MethodScannerWorker {
                 Utils.PostToMainDelay(() -> Utils.restartSelf(context), 500);
             }, "QTool_Method_Finder").start();
         });
-
-        while (true) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
 
     }
 

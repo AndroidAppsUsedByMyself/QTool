@@ -1,8 +1,6 @@
 package cc.hicore.qtool.JavaPlugin.Hooker;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
@@ -18,11 +16,9 @@ import cc.hicore.ReflectUtils.MClass;
 import cc.hicore.ReflectUtils.MField;
 import cc.hicore.ReflectUtils.MMethod;
 import cc.hicore.ReflectUtils.QQReflect;
-import cc.hicore.Utils.Utils;
 import cc.hicore.qtool.HookEnv;
 import cc.hicore.qtool.JavaPlugin.InChatControl.FloatWindowControl;
 import cc.hicore.qtool.QQMessage.QQSessionUtils;
-import cc.hicore.qtool.StickerPanelPlus.PanelUtils;
 
 @XPItem(name = "IMessageMenuHooker",itemType = XPItem.ITEM_Hook)
 public class IMessageMenuHooker {
@@ -44,7 +40,7 @@ public class IMessageMenuHooker {
     @XPExecutor(methodID = "menu_add",period = XPExecutor.After)
     public BaseXPExecutor xpWorker(){
         return param -> {
-            if (FloatWindowControl.IsAvailable(QQSessionUtils.getGroupUin(),QQSessionUtils.getSessionID() == 1,2)){
+            if (FloatWindowControl.updatePluginCache(QQSessionUtils.getGroupUin(),QQSessionUtils.getSessionID() == 1,2)){
                 Object arr = param.getResult();
                 Object ret = Array.newInstance(arr.getClass().getComponentType(), Array.getLength(arr) + 1);
                 System.arraycopy(arr, 0, ret, 1, Array.getLength(arr));

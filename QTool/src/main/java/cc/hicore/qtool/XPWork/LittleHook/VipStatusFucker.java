@@ -6,14 +6,13 @@ import cc.hicore.HookItemLoader.Annotations.MethodScanner;
 import cc.hicore.HookItemLoader.Annotations.UIItem;
 import cc.hicore.HookItemLoader.Annotations.VerController;
 import cc.hicore.HookItemLoader.Annotations.XPExecutor;
-import cc.hicore.HookItemLoader.Annotations.XPItem;
 import cc.hicore.HookItemLoader.bridge.BaseXPExecutor;
 import cc.hicore.HookItemLoader.bridge.MethodContainer;
 import cc.hicore.HookItemLoader.bridge.MethodFinderBuilder;
 import cc.hicore.HookItemLoader.bridge.UIInfo;
 import de.robv.android.xposed.XposedBridge;
 
-@XPItem(itemType = XPItem.ITEM_Hook, name = "VipStatusFucker")
+//@XPItem(itemType = XPItem.ITEM_Hook, name = "VipStatusFucker")
 public class VipStatusFucker {
     @UIItem
     @VerController
