@@ -47,6 +47,7 @@ public class BaseProxyAct extends Activity {
             Intent intent = new Intent(baseAct, BaseProxyAct.class);
             intent.putExtra("Tag", Tag);
             baseAct.startActivity(intent);
+
         } catch (Exception e) {
             LogUtils.error("BaseActProxy", e);
             Utils.ShowToast("无法创建界面:" + e);
@@ -89,6 +90,10 @@ public class BaseProxyAct extends Activity {
         RelativeLayout.LayoutParams param = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         param.topMargin = Utils.getStatusBarHeight(this);
         ani_layout.addView(createView, param);
+
+
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     private void setTitleFea() {
