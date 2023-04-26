@@ -10,8 +10,11 @@ import cc.hicore.qtool.XposedInit.DebugDialog;
 
 public class MainMenuActionRegister {
     static {
+        /*
         ActionUtils.registerAction("OpenJavaPlugin", JavaPluginAct::startActivity);
         MainMenu.addItemData(0, "Java脚本", 0, "OpenJavaPlugin", R.drawable.menu_icon_plugin);
+
+         */
 
         ActionUtils.registerAction("QQHelper", v -> MainItemChildLoader.startLoad(1, v));
         MainMenu.addItemData(1, "QQ辅助功能", 0, "QQHelper", R.drawable.main_helper);

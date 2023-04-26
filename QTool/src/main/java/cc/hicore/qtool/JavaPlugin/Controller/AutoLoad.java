@@ -11,7 +11,7 @@ import cc.hicore.HookItemLoader.Annotations.XPItem;
 import cc.hicore.Utils.FileUtils;
 import cc.hicore.qtool.HookEnv;
 
-@XPItem(name = "脚本自动加载", itemType = XPItem.ITEM_Hook, period = XPItem.Period_InitData)
+//@XPItem(name = "脚本自动加载", itemType = XPItem.ITEM_Hook, period = XPItem.Period_InitData)
 public class AutoLoad {
     @VerController
     @CommonExecutor
