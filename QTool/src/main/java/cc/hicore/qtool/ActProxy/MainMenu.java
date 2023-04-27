@@ -24,6 +24,7 @@ import cc.hicore.Utils.Utils;
 import cc.hicore.qtool.BuildConfig;
 import cc.hicore.qtool.HookEnv;
 import cc.hicore.qtool.R;
+import cc.hicore.qtool.XposedInit.DebugDialog;
 
 public class MainMenu {
     private static final HashMap<Integer, Item_data> main_items = new HashMap<>(64);
@@ -71,6 +72,8 @@ public class MainMenu {
 
                                 }).show();
                     });
+                }else {
+                    DebugDialog.startShow(context);
                 }
             } catch (Exception e) {
 
