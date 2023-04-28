@@ -10,6 +10,7 @@ import cc.hicore.HookItemLoader.Annotations.XPExecutor;
 import cc.hicore.HookItemLoader.Annotations.XPItem;
 import cc.hicore.HookItemLoader.bridge.BaseXPExecutor;
 import cc.hicore.HookItemLoader.bridge.MethodContainer;
+import cc.hicore.HookItemLoader.bridge.MethodFinderBuilder;
 import cc.hicore.HookItemLoader.bridge.QQVersion;
 import cc.hicore.HookItemLoader.bridge.UIInfo;
 import cc.hicore.ReflectUtils.MClass;
@@ -45,8 +46,9 @@ public class HideAppEntry {
     @VerController(targetVer = QQVersion.QQ_8_9_58)
     @MethodScanner
     public void getHookMethod_8958(MethodContainer container) {
-        container.addMethod("hook", MMethod.FindMethod(MClass.loadClass("com.tencent.mobileqq.mini.api.impl.MiniAppServiceImpl"), "createMiniAppEntryManager", MClass.loadClass("com.tencent.mobileqq.mini.entry.MiniAppPullInterface"), new Class[]{
+        container.addMethod("hook_before", MMethod.FindMethod(MClass.loadClass("com.tencent.mobileqq.mini.api.impl.MiniAppServiceImpl"), "createMiniAppEntryManager", MClass.loadClass("com.tencent.mobileqq.mini.entry.MiniAppPullInterface"), new Class[]{
                 boolean.class, Activity.class, Object.class, Object.class,  ViewGroup.class,MClass.loadClass("com.tencent.mobileqq.mini.entry.IRefreshOperator")
         }));
+        container.addMethod(MethodFinderBuilder.newFinderWhichMethodInvokingLinked("hook","hook_before",m -> true));
     }
 }
