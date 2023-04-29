@@ -15,6 +15,21 @@ public class MField {
     public static void SetField(Object CheckObj, String FieldName, Class<?> CheckClass, Object Value) throws Exception {
         SetField(CheckObj, CheckObj.getClass(), FieldName, CheckClass, Value);
     }
+    public interface Filter <T>{
+        boolean filter(T value);
+    }
+    public static <T> T GetFieldFilter(Object checkObj,Class<T> type,Filter<T> filter) throws Exception {
+        Assert.notNull(checkObj, "obj is null when invoke GetField");
+        Assert.notNull(type, "type is null when invoke GetField");
+        Field[] fields = checkObj.getClass().getDeclaredFields();
+        for (Field f : fields){
+            if (f.getType().equals(type)){
+                f.setAccessible(true);
+                if (filter.filter((T) f.get(checkObj)))return (T) f.get(checkObj);
+            }
+        }
+        throw new NoSuchFieldException("Can't find field type " + type + " in object " + checkObj.getClass().getName());
+    }
 
     public static <T> T GetField(Object CheckObj, String FieldName) throws Exception {
         Assert.notNull(CheckObj, "obj is null when invoke GetField");

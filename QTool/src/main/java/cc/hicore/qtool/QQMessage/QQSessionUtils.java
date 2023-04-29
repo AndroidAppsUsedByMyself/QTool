@@ -9,7 +9,7 @@ import cc.hicore.HookItemLoader.bridge.QQVersion;
 import cc.hicore.LogUtils.LogUtils;
 import cc.hicore.ReflectUtils.MClass;
 import cc.hicore.ReflectUtils.MField;
-import cc.hicore.qtool.EmoHelper.Hooker.GuildSessionMonitor;
+import cc.hicore.qtool.XPWork.GuildSessionMonitor;
 import cc.hicore.qtool.HookEnv;
 import cc.hicore.qtool.QQManager.QQGroupUtils;
 import cc.hicore.qtool.XposedInit.HostInfo;

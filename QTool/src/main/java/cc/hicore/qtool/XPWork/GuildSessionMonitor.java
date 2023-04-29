@@ -1,4 +1,4 @@
-package cc.hicore.qtool.EmoHelper.Hooker;
+package cc.hicore.qtool.XPWork;
 
 import cc.hicore.HookItemLoader.Annotations.MethodScanner;
 import cc.hicore.HookItemLoader.Annotations.VerController;

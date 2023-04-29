@@ -9,7 +9,6 @@ import java.util.concurrent.Executors;
 
 import cc.hicore.Utils.DataUtils;
 import cc.hicore.Utils.HttpUtils;
-import cc.hicore.qtool.EmoHelper.Panel.EmoPanel;
 import cc.hicore.qtool.HookEnv;
 import cc.hicore.qtool.XposedInit.EnvHook;
 
