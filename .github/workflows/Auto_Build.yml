@@ -2,7 +2,7 @@ name: Build CI (signed)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ DataEraserC_main ]
   workflow_dispatch:
     inputs:
       download-url:
